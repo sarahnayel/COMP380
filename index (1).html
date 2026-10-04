@@ -1,0 +1,284 @@
+:: StoryTitle
+COMP380_FinalProject
+
+
+:: StoryData
+{
+  "ifid": "39E110B6-6A43-44E0-B565-C8589A40574B",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Act I",
+  "zoom": 1
+}
+
+
+:: ACT II {"position":"250,900","size":"100,100"}
+You are now an undergraduate student, navigating college life. You're filling in a campus survey for a free snack!
+
+
+Do you read the Terms and Conditions, or just hit Agree?
+[[Read the Terms and Conditions]]
+[[Skim or not read it, and Agree anyway]]
+
+
+
+:: Act I {"position":"600,200","size":"100,100"}
+(set: $visibility to 0)
+(set: $acceptedTerms to false)
+(set: $taggedPhoto to false)
+(set: $postedPersonal to false)
+Welcome! Today we will be learning about how our actions affect our visibility
+
+[[Begin!|Phone]]
+
+
+:: Act III {"position":"550,1475","size":"100,100"}
+Senior year. You're applying for jobs.
+
+The first interview is for a marketing coordinator role 
+at a mid-size company. You've wanted this.
+
+You sit down. The recruiter opens her laptop.
+
+"Before we get started — I always do a quick search."
+
+She's already typing.
+
+(if: $postedPersonal is true)[A pause. 
+
+"We saw some posts from when you were in high school." 
+She doesn't say which ones. You think you know.
+"Nothing disqualifying. We just like to get a full picture."
+
+You nod. The posts are four years old. 
+You were fourteen. You didn't know anyone was keeping score.]
+
+(if: $taggedPhoto is true)[She tilts the screen slightly. 
+Not toward you — away from you.
+
+A photo. A party from junior year that you barely remember. 
+You didn't post it. You weren't even the one who shared it.
+It has your face in it, and it's been indexed for three years,
+and you are only finding out about it right now,
+in this room,
+because a stranger found it first.]
+
+(if: $acceptedTerms is false)[Later — not today, but later — 
+you'll learn that a data broker sold a behavioral profile 
+assembled from your app usage, your location, your scroll patterns.
+The hiring software flagged it before she even met you.
+You agreed to this, technically.
+You clicked agree.
+
+You were seventeen. There was no other option.]
+
+(if: $hasInstagram is false)["We couldn't find much about you," she says.
+
+Her tone is neutral. You can't read it.
+You've spent years not knowing 
+if that's something to be proud of.]
+
+A long moment.
+
+"We'll be in touch."
+
+[[What happens next?]]
+
+
+:: First Post {"position":"625,950","size":"100,100"}
+Instagram is a place to share all kinds of content. What will your first be about?
+
+There was a huge fight at school, and your crush just told you they like you!
+
+[[Post about it]]
+[[Keep it private]]
+
+
+:: Instagram {"position":"700,500","size":"100,100"}
+(set: $visibility to it +1)
+
+A lot of your friends are making accounts, and you don't want to feel left out, so you make one too. Plus, now your name is out there, and you'll become more popular at your school and even at other schools!
+
+Pick a name to use for the account:
+[[Real Name]]
+[[Username]]
+
+
+
+:: Keep {"position":"275,1275","size":"100,100"}
+(set: $visibility to it +3) (set: $taggedPhoto to true)
+Good choice, you've now made a ton of friends from everyone who saw the pic and thought you looked super cool! Now you're getting invited to dinners, cool events, and getting help with classes from some of your upperclassmen friends!
+
+Now, let's see what's next for you in college!
+[[Opportunities]] 
+
+
+:: Keep it private {"position":"750,1075","size":"100,100"}
+You're choosing to keep your private life offline! Now let's see the impacts of these choices in the future.. 
+
+[[5 years later|ACT II]]
+
+
+:: No instagram {"position":"500,500","size":"100,100"}
+Great choice! This path affords you privacy to live your life and make mistakes, without anyone knowing! //(Pressly)// 
+
+You take up journaling, and you try learing new skills.
+
+[[Continue living without instagram |Track]]
+[[I've changed my mind, I want to be on social media |Instagram]]
+
+
+
+:: Opportunities {"position":"225,1425","size":"100,100"}
+(if:$visibility >=3)[You are officially a Campus Ambassador for Good Molecules! Your amazing social media profile allowed you to catch the eye of lots of brands, and now you have a campus job that also gives you tons of swag! ]
+(if:$visibility <3)[You're having a great time at school, and you're keeping it mostly private. You're trying things like Intramural Sports, arts and crafts, and so much more! You don't hear about every party. 
+You're not sure you were missing them. You're not sure you weren't. 
+You live a fulfilled and happy life through other interests, and you make meaningful connections when you want to.]
+
+Two more years pass..
+[[Act III]]
+
+
+:: Phone {"position":"600,375","size":"100,100"}
+You are 14 years of age, your parents just got you a new phone! You're deciding what fun apps to install. Do you make an Instagram profile? 
+
+[[Yes|Instagram]]
+[[No|No instagram]]
+
+
+:: Post about it {"position":"625,1075","size":"100,100"}
+(set: $visibility to it +2) (set: $postedPersonal to true)
+
+You're building your public presence! Now let's see the impacts of these choices in the future.. 
+
+[[5 years later|ACT II]]
+
+
+:: Private {"position":"700,800","size":"100,100"}
+Great! Now let's make your first instagram post.
+
+[[First Post]] 
+
+
+:: Public {"position":"550,800","size":"100,100"}
+(set: $visibility to it +2)
+Great! Now let's make your first instagram post.
+
+[[First Post]] 
+
+
+:: Read the Terms and Conditions {"position":"125,1025","size":"100,100"}
+You understand what you agreed to. You do it anyway, because there's no alternative that lets you participate. The terms aren't negotiable, consent here is coerced.
+(set: $visibility to it +1) (set: $acceptedTerms to true)
+[[Next|Tagged Post]]
+
+
+:: Real Name {"position":"600,650","size":"100,100"}
+(set: $visibility to it +2)
+
+Now it's time ti set the visibility of your Instagram page
+
+Will you make your account [[Public]] or [[Private]]?
+
+
+
+:: Remove {"position":"100,1275","size":"100,100"}
+Good choice, you've asked your friend to take the post down. They do, eventually. But it was up for three days. (set: $visibility to it +1). Your friends get the sense you don't like to be posted online, so they no longer do it as much.
+
+Now, let's see what's next for you in college!
+[[Opportunities]] 
+
+
+:: Skim or not read it, and Agree anyway {"position":"300,1025","size":"100,100"}
+(set: $visibility to it +2)
+
+(set: $acceptedTerms to true)
+[[Next|Tagged Post]]
+
+
+:: Startup {"position":"775,200","size":"100,100"}
+(set: $visibility to 0)
+(set: $acceptedTerms to false)
+(set: $taggedPhoto to false)
+(set: $postedPersonal to false)
+
+
+
+:: Tagged Post {"position":"200,1150","size":"100,100"}
+You went out with your friends last weekend, and your friend just posted the best digi pics from beer pong and youire in it!! You're not sure if you should keep it up for the cool points, ask that they remove that photo from the post
+
+Remove yourself from tagged?
+[[Remove]]
+[[Keep]]
+
+
+:: Track {"position":"475,625","size":"100,100"}
+Ahh looks like your phone is actually still tracking you at all times, so don't think you're off the grid just yet. Three apps updated in the background. Somewhere, without you ever making an account, a behavioral profile was assembled from your location, your search history, and the time you spend looking at certain ads. It has a score. You'll never see it.
+
+//You cannot opt out of digital life entirely (Zuboff)//
+(set: $visibility to it +0.5)
+[[Next |ACT II]]
+
+
+
+:: Username {"position":"750,650","size":"100,100"}
+Now it's time ti set the visibility of your Instagram page
+
+Will you make your account [[Public]] or [[Private]]?
+
+
+
+:: What happens next? {"position":"550,1600","size":"100,100"}
+You get the job.
+
+(if: $visibility >= 5)[You got it partly because of your presence. 
+Your profile showed personality, creativity, 
+cultural fit — their words, in the offer letter.
+
+Six months in, a colleague finds something you posted at fifteen.
+It's not bad, exactly. It's just young.
+You spend a week wondering if it will matter.
+It doesn't. This time.
+
+You think about the version of you that posted it.
+She didn't know anyone was watching.
+She didn't know she was building a record.
+She thought she was just talking.]
+
+(if: $visibility < 5)[You got it. 
+You're not entirely sure why — 
+you'll never know what she found, or didn't find, 
+or what the software scored you.
+
+Some doors were harder to open.
+You don't know which ones you never saw at all.]
+
+Somewhere, a profile with your name on it 
+was updated today.
+
+You didn't write it.
+
+You never do.
+
+——
+
+//Privacy isn't the absence of a record.//
+//It's the question of who gets to write it.//
+
+[[Play again?|Act I]]
+
+
+:: StoryStylesheet [stylesheet]
+tw-sidebar {
+  display: none;
+}
+p {
+  color: #35281E;
+}
+tw-story{
+  background-color: #99C68E;
+}
+tw-passage[tags~="Act I"] {
+background-image:
+url("https://news.stanford.edu/__data/assets/image/0016/132262/Data_Privacy_Listicle.jpg");
+background-size: cover;
